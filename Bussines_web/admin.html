@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Portal - Messages</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 15px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2rem;
+        }
+
+        main {
+            padding: 30px;
+            background-color: white;
+            max-width: 1200px;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #0073e6;
+            color: white;
+        }
+
+        td {
+            background-color: #f9f9f9;
+        }
+
+        .message-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .message-details {
+            background-color: #f1f1f1;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+
+        .message-details h3 {
+            margin: 0;
+            font-size: 1.4rem;
+            color: #0073e6;
+        }
+
+        .message-details p {
+            font-size: 1.1rem;
+            margin-top: 5px;
+        }
+
+        .back-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #0073e6;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .back-btn:hover {
+            background-color: #005bb5;
+        }
+
+        .checkmark-btn {
+            cursor: pointer;
+            font-size: 1.5rem;
+            padding: 8px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .checkmark-btn.unread {
+            border: 2px solid red;
+        }
+
+        .checkmark-btn.read {
+            border: 2px solid green;
+        }
+
+        .message-row.unread {
+            border: 5px solid red;
+        }
+
+        .message-row.read {
+            border: 5px solid green;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Admin Portal</h1>
+        <nav>
+            <a href="index.html" style="color:white; text-decoration: none; margin-right: 20px;">Home</a>
+            <a href="#" style="color:white; text-decoration: none;">Messages</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="message-container">
+            <h2>Messages from Users</h2>
+            <table id="messages-table">
+                <thead>
+                    <tr>
+                        <th>Message ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Message</th>
+                        <th>Date</th>
+                        <th>Action</th>
+                        <th>Mark as Read</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Example Row (Dynamic Content) -->
+                    <tr class="message-row unread">
+                        <td>1</td>
+                        <td>John Doe</td>
+                        <td>johndoe@example.com</td>
+                        <td>This is a test message.</td>
+                        <td>2025-01-07</td>
+                        <td><a href="#" class="view-message">View</a></td>
+                        <td><span class="checkmark-btn unread" onclick="toggleReadStatus(this)">✔</span></td>
+                    </tr>
+                    <!-- Dynamic Rows Will Go Here -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Message Detail Popup -->
+        <div id="message-details" class="message-details" style="display:none;">
+            <h3 id="message-title">Message from: John Doe</h3>
+            <p id="message-content">This is a test message.</p>
+            <a href="#" class="back-btn" id="back-btn">Back to Messages</a>
+        </div>
+    </main>
+
+    <script>
+        // Simulate loading messages from a server (You would replace this with a fetch API or AJAX)
+        const messages = [
+            {
+                id: 1,
+                name: 'John Doe',
+                email: 'johndoe@example.com',
+                message: 'This is a test message.',
+                date: '2025-01-07',
+                isRead: false
+            },
+            {
+                id: 2,
+                name: 'Jane Smith',
+                email: 'janesmith@example.com',
+                message: 'How can I contact you for a project?',
+                date: '2025-01-06',
+                isRead: false
+            }
+        ];
+
+        const messagesTable = document.getElementById('messages-table').getElementsByTagName('tbody')[0];
+
+        // Function to load the messages dynamically
+        function loadMessages() {
+            messagesTable.innerHTML = '';
+            messages.forEach(message => {
+                const row = messagesTable.insertRow();
+                row.classList.add(message.isRead ? 'read' : 'unread'); // Set initial class based on read/unread
+                row.innerHTML = `
+                    <td>${message.id}</td>
+                    <td>${message.name}</td>
+                    <td>${message.email}</td>
+                    <td>${message.message.substring(0, 30)}...</td>
+                    <td>${message.date}</td>
+                    <td><a href="#" class="view-message" data-id="${message.id}">View</a></td>
+                    <td><span class="checkmark-btn ${message.isRead ? 'read' : 'unread'}" onclick="toggleReadStatus(this)">✔</span></td>
+                `;
+            });
+        }
+
+        // Event listener to show the full message when "View" is clicked
+        document.addEventListener('click', function (e) {
+            if (e.target && e.target.classList.contains('view-message')) {
+                const messageId = e.target.getAttribute('data-id');
+                const message = messages.find(msg => msg.id == messageId);
+
+                if (message) {
+                    document.getElementById('message-title').innerText = `Message from: ${message.name}`;
+                    document.getElementById('message-content').innerText = message.message;
+                    document.getElementById('message-details').style.display = 'block';
+                    document.querySelector('main').style.display = 'none';
+                }
+            }
+
+            if (e.target && e.target.id === 'back-btn') {
+                document.getElementById('message-details').style.display = 'none';
+                document.querySelector('main').style.display = 'block';
+            }
+        });
+
+        // Toggle the "read" status and update the row's border color
+        function toggleReadStatus(element) {
+            const messageId = element.closest('tr').cells[0].textContent;
+            const message = messages.find(msg => msg.id == messageId);
+            if (message) {
+                message.isRead = !message.isRead;  // Toggle read status
+                const row = element.closest('tr');
+                row.classList.toggle('read');  // Add green ring to row
+                row.classList.toggle('unread'); // Add red ring to row
+                element.classList.toggle('read'); // Update checkmark button
+                element.classList.toggle('unread'); // Update checkmark button
+                loadMessages();  // Re-render the table with updated status
+            }
+        }
+
+        // Load messages when the page is ready
+        loadMessages();
+    </script>
+</body>
+</html>

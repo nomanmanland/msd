@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Me</title>
+    <style>
+        /* Global Styles */
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%; /* Ensure full height */
+            background-image: url('background-image.jpg'); /* Background image */
+            background-size: cover; /* Ensure the background image covers the whole page */
+            background-position: center; /* Center the image */
+            background-attachment: fixed; /* Make the background stay fixed while scrolling */
+            color: #333;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(0, 115, 230, 0.8); /* Transparent background to see the image through */
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        nav {
+            margin-top: 10px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.1rem;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Main Content */
+        .main {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9); /* Slight transparency for the content box */
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .main h2 {
+            font-size: 2rem;
+            color: #0073e6;
+            margin-bottom: 20px;
+        }
+
+        .form-container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-container input,
+        .form-container textarea {
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        .form-container input[type="submit"] {
+            background-color: #0073e6;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .form-container input[type="submit"]:hover {
+            background-color: #005bb5;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: #0073e6;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>Contact Me</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+
+        <!-- Contact Form -->
+        <h2>Get In Touch</h2>
+        <p>If you have any questions or would like to discuss a project, feel free to send me a message using the form below!</p>
+
+        <div class="form-container">
+            <form action="send_message.php" method="POST">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <input type="tel" name="phone" placeholder="Your Phone (optional)">
+                <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
+                <input type="submit" value="Send Message">
+            </form>
+        </div>
+
+        <!-- Contact Details -->
+        <h2>Contact Information</h2>
+        <p>If you prefer, you can reach me at:</p>
+        <ul>
+            <li>Email: <a href="mailto:contact@404found.com">contact@404found.com</a></li>
+            <li>Phone: +1 (123) 456-7890</li>
+            <li>Instagram: <a href="https://www.instagram.com/error404.found/#" target="_blank">Follow me</a></li>
+        </ul>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2025 404 Found! All rights reserved. <a href="#">Privacy Policy</a>
+    </footer>
+
+</body>
+</html>

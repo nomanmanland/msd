@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me</title>
+    <style>
+        /* Global Styles */
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background-color: #0073e6;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        nav {
+            margin-top: 10px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.1rem;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Main Content */
+        .main {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* About Section */
+        .about-section {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+
+        .about-section img {
+            width: 40%;
+            border-radius: 8px;
+        }
+
+        .about-section div {
+            width: 55%;
+        }
+
+        .about-section h2 {
+            font-size: 2rem;
+            color: #0073e6;
+            margin-bottom: 15px;
+        }
+
+        .about-section p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .contact-section h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #0073e6;
+        }
+
+        .contact-section p {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        /* Instagram Button (Fixed to the right side) */
+        .social-media {
+            position: fixed;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            text-align: center;
+            z-index: 1000;
+        }
+
+        .social-media a {
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .social-media img {
+            width: 50px;
+            height: 50px;
+            transition: transform 0.3s ease;
+        }
+
+        .social-media img:hover {
+            transform: scale(1.1);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: #0073e6;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>About Me</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="services.html">Services</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+
+        <!-- About Section -->
+        <div class="about-section">
+            <img src="your-image.jpg" alt="Your Image">
+            <div>
+                <h2>My Story</h2>
+                <p>Hi, I'm [Your Name], the person behind 404 Found!. My journey into web design and development wasn't a straightforward one, but it was one I had to take. A few years ago, I was at a low point in my life. I had just lost my job due to unforeseen circumstances, and for the first time, I found myself unsure of what to do next. The world felt uncertain, and the future felt like a distant dream.</p>
+                <p>In the midst of the struggle, I turned to what I loved: technology. I began learning about web development in my spare time, teaching myself through online tutorials, trial and error, and countless late nights. What started as a way to distract myself from the frustration of my job loss became a passion. I found joy in creating something from scratch, seeing it come to life on a screen, and knowing that I had the power to bring a vision to reality.</p>
+                <p>Over time, I realized that web development was more than just a hobby—it was my calling. It wasn't easy to get started, but I took on small freelance projects, learning and growing with each one. Slowly, I built up enough confidence to leave the past behind and take the leap into running my own business. The decision wasn't easy, but I knew that if I wanted to have control over my future, I had to take that risk.</p>
+                <p>Today, 404 Found! is my way of helping others who feel lost or overwhelmed. I know what it’s like to start from scratch and not have a clear path ahead. That’s why I approach every project with a personal touch—because I know how important it is to have someone who truly cares about your success. My mission is to provide small businesses and individuals with the tools to create a meaningful online presence, just like I had to do for myself.</p>
+            </div>
+        </div>
+
+        <!-- Contact Section -->
+        <div class="contact-section">
+            <h2>Contact Me</h2>
+            <p>If you'd like to learn more about how I can help you with your next project or have any questions, feel free to reach out!</p>
+            <p>Email: contact@404found.com</p>
+            <p>Phone: +1 (123) 456-7890</p>
+        </div>
+
+    </main>
+
+    <!-- Instagram Button on the Side -->
+    <div class="social-media">
+        <p>Follow me on Instagram:</p>
+        <a href="https://www.instagram.com/yourusername" target="_blank">
+            <img src="instagram-icon.png" alt="Instagram">
+        </a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2025 404 Found! All rights reserved. <a href="#">Privacy Policy</a>
+    </footer>
+
+</body>
+</html>
